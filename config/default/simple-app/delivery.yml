@@ -52,7 +52,7 @@ spec:
           value: http://simple-api:8080
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: reg.dev2.bmath.nyc/development/kp/simple-app-default@sha256:952342ce03837e8b84a55820d5830f863e0701a6882584ccc527e1f4fe570456
+        image: reg.dev2.bmath.nyc/development/kp/simple-app-default@sha256:e56b28b61bda5f155523a1e1b5ba8d49f99af0621994cb6491d440cdc5e88d18
         livenessProbe:
           httpGet:
             path: /livez
