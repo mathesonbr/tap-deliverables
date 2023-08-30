@@ -31,6 +31,8 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
         developer.conventions/target-containers: workload
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/part-of":"simple-app","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/language":"java","apps.tanzu.vmware.com/workload-type":"web"},"name":"simple-app","namespace":"default"},"spec":{"env":[{"name":"SIMPLE_API_URL","value":"http://simple-api:8080"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/Simple-Org-123/simple-app.git"}}}}
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-app
@@ -52,7 +54,7 @@ spec:
           value: http://simple-api:8080
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: reg.dev2.bmath.nyc/development/kp/simple-app-default@sha256:e56b28b61bda5f155523a1e1b5ba8d49f99af0621994cb6491d440cdc5e88d18
+        image: reg.dev2.bmath.nyc/development/kp/simple-app-default@sha256:965a9d474531ed38ad9f6c0667b22fe0f61e49293f1ffe13fb80e6486578648f
         livenessProbe:
           httpGet:
             path: /livez
